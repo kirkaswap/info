@@ -5,12 +5,10 @@ import { hex } from 'wcag-contrast'
 import { isAddress } from '../utils'
 import copy from 'copy-to-clipboard'
 
-export function useColor(tokenAddress, token) {
-  const [color, setColor] = useState('#2172E5')
+export function useColor(tokenAddress, token = 'pCKB') {
+  const [color, setColor] = useState('#a8ff78')
   if (tokenAddress) {
-    const path = `https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${isAddress(
-      tokenAddress
-    )}/logo.png`
+    const path = `https://raw.githubusercontent.com/kirkaswap/token-lists/master/assets/asset_${token}.svg`
     if (path) {
       Vibrant.from(path).getPalette((err, palette) => {
         if (palette && palette.Vibrant) {

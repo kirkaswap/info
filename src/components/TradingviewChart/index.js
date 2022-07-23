@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useContext } from 'react'
 import { createChart } from 'lightweight-charts'
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 import { formattedNum } from '../../utils'
-import styled from 'styled-components'
+import styled, { ThemeContext } from 'styled-components'
 import { usePrevious } from 'react-use'
 import { Play } from 'react-feather'
 import { useDarkModeManager } from '../../contexts/LocalStorage'
@@ -39,6 +39,7 @@ const TradingViewChart = ({
   // pointer to the chart object
   const [chartCreated, setChartCreated] = useState(false)
   const dataPrev = usePrevious(data)
+  const theme = useContext(ThemeContext)
 
   useEffect(() => {
     if (data !== dataPrev && chartCreated && type === CHART_TYPES.BAR) {
@@ -129,7 +130,7 @@ const TradingViewChart = ({
       var series =
         type === CHART_TYPES.BAR
           ? chart.addHistogramSeries({
-              color: '#ff007a',
+              color: theme.chartColor1,
               priceFormat: {
                 type: 'volume',
               },
@@ -137,13 +138,13 @@ const TradingViewChart = ({
                 top: 0.32,
                 bottom: 0,
               },
-              lineColor: '#ff007a',
+              lineColor: theme.chartColor1,
               lineWidth: 3,
             })
           : chart.addAreaSeries({
-              topColor: '#ff007a',
-              bottomColor: 'rgba(255, 0, 122, 0)',
-              lineColor: '#ff007a',
+              topColor: theme.chartColor1,
+              bottomColor: theme.chartColor2,
+              lineColor: theme.chartColor1,
               lineWidth: 3,
             })
 
@@ -160,7 +161,10 @@ const TradingViewChart = ({
 
       // format numbers
       let percentChange = baseChange?.toFixed(2)
-      let formattedPercentChange = (percentChange > 0 ? '+' : '') + percentChange + '%'
+      let formattedPercentChange = (percentChange > 0 ? `+${percentChange}%` : `${percentChange}%`)
+      if (!percentChange) {
+        formattedPercentChange = ''
+      }
       let color = percentChange >= 0 ? 'green' : 'red'
 
       // get the title of the chart
