@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { isAddress } from '../../utils/index.js'
-import EthereumLogo from '../../assets/eth.png'
+import CKBLogo from '../../assets/pCKB.svg'
 import { useListedTokens } from '../../contexts/Application.js'
 
 const BAD_IMAGES = {}
@@ -50,11 +50,11 @@ export default function TokenLogo({ address, header = false, size = '24px', ...r
     )
   }
 
-  if (address?.toLowerCase() === '0xdd9dbd70b18f99389f0fa51a8d416cc8912da598') {
+  if (address?.toLowerCase() === '0x5bd2e2864ea2a338da5f4b29fe62cf26109a3af4') {
     return (
       <StyledEthereumLogo size={size} {...rest}>
         <img
-          src={EthereumLogo}
+          src={CKBLogo}
           style={{
             boxShadow: '0px 6px 10px rgba(0, 0, 0, 0.075)',
             borderRadius: '24px',

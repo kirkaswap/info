@@ -302,8 +302,8 @@ export const Big = (number) => new BigNumber(number)
 
 export const urls = {
   showTransaction: (tx) => `https://gw-testnet-explorer.nervosdao.community/tx/${tx}/`,
-  showAddress: (address) => `https://www.etherscan.io/address/${address}/`,
-  showToken: (address) => `https://www.etherscan.io/token/${address}/`,
+  showAddress: (address) => `https://gw-testnet-explorer.nervosdao.community/address/${address}/`,
+  showToken: (address) => `https://gw-testnet-explorer.nervosdao.community/token/${address}/`,
   showBlock: (block) => `https://gw-testnet-explorer.nervosdao.community/block/${block}/`,
 }
 
