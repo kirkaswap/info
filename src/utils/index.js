@@ -40,13 +40,13 @@ export function getTimeframe(timeWindow) {
 export function getPoolLink(token0Address, token1Address = null, remove = false) {
   if (!token1Address) {
     return (
-      `https://app.kirkaswap.com/#/` +
+      `https://kirkaswap.com/#/` +
       (remove ? `remove` : `add`) +
       `/${token0Address === '0x5bd2e2864ea2a338da5f4b29fe62cf26109a3af4' ? 'pCKB' : token0Address}/${'pCKB'}`
     )
   } else {
     return (
-      `https://app.kirkaswap.com/#/` +
+      `https://kirkaswap.com/#/` +
       (remove ? `remove` : `add`) +
       `/${token0Address === '0x5bd2e2864ea2a338da5f4b29fe62cf26109a3af4' ? 'pCKB' : token0Address}/${token1Address === '0x5bd2e2864ea2a338da5f4b29fe62cf26109a3af4' ? 'pCKB' : token1Address
       }`
@@ -56,19 +56,19 @@ export function getPoolLink(token0Address, token1Address = null, remove = false)
 
 export function getSwapLink(token0Address, token1Address = null) {
   if (!token1Address) {
-    return `https://app.kirkaswap.com/#/swap/${token0Address}`
+    return `https://kirkaswap.com/#/swap/${token0Address}`
   } else {
-    return `https://app.kirkaswap.com/#/swap/${token0Address === '0x5bd2e2864ea2a338da5f4b29fe62cf26109a3af4' ? 'pCKB' : token0Address
+    return `https://kirkaswap.com/#/swap/${token0Address === '0x5bd2e2864ea2a338da5f4b29fe62cf26109a3af4' ? 'pCKB' : token0Address
       }/${token1Address === '0x5bd2e2864ea2a338da5f4b29fe62cf26109a3af4' ? 'pCKB' : token1Address}`
   }
 }
 
 export function getMiningPoolLink(token0Address) {
-  return `https://app.kirkaswap.com/#/pCKB/${token0Address}`
+  return `https://kirkaswap.com/#/pCKB/${token0Address}`
 }
 
 export function getUniswapAppLink(linkVariable) {
-  let baseUniswapUrl = 'https://app.kirkaswap.com/#'
+  let baseUniswapUrl = 'https://kirkaswap.com/#'
   if (!linkVariable) {
     return baseUniswapUrl
   }

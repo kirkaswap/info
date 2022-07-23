@@ -22,7 +22,7 @@ const Wrapper = styled.div`
   top: 0px;
   z-index: 9999;
   box-sizing: border-box;
-  background-color: #203A43;
+  background-color: #203a43;
   /* background: linear-gradient(to right, #2C5364, #203A43, #0F2027); */
   color: ${({ theme }) => theme.bg2};
 
@@ -164,7 +164,7 @@ function SideNav({ history }) {
           </AutoColumn>
           <AutoColumn gap="0.5rem" style={{ marginLeft: '.75rem', marginBottom: '4rem' }}>
             <HeaderText>
-              <Link href="https://app.kirkaswap.com" target="_blank">
+              <Link href="https://kirkaswap.com" target="_blank">
                 Kirkaswap.com
               </Link>
             </HeaderText>
