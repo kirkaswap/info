@@ -469,8 +469,7 @@ const getGlobalTransactions = async () => {
  */
 const getEthPrice = async () => {
   const utcCurrentTime = dayjs()
-  // TODO: Return back 1
-  const utcOneDayBack = utcCurrentTime.subtract(0, 'day').startOf('minute').unix()
+  const utcOneDayBack = utcCurrentTime.subtract(1, 'day').startOf('minute').unix()
 
   let ethPrice = 0
   let ethPriceOneDay = 0
@@ -709,7 +708,7 @@ export function useTopLps() {
             if (results) {
               return results.liquidityPositions
             }
-          } catch (e) {}
+          } catch (e) { }
         })
       )
 
